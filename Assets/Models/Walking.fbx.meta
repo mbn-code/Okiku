@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 138542b8c30f90f45ab8f084646c19dc
+guid: 56f86a38565e9c14fb7c759c1f4bc0c5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -24,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -37,7 +37,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 61
+      lastFrame: 62
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -45,7 +45,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -296,13 +296,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: doll_rigged@Walking(Clone)
+    - name: Walking(Clone)
       parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: Hips
-      parentName: doll_rigged@Walking(Clone)
+      parentName: Walking(Clone)
       position: {x: -0.00090015866, y: 0.06396675, z: 1.0678511}
       rotation: {x: -0.8259853, y: 0.008360689, z: -0.016946753, w: 0.5633748}
       scale: {x: 1, y: 1, z: 1}
