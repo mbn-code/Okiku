@@ -1,2 +1,2 @@
 # Rokurokubi
-I dystopian dark story based game.
+A dystopian dark story based game.
