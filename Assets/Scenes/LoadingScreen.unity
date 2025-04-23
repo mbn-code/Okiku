@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 686620001}
   - component: {fileID: 686620003}
   - component: {fileID: 686620002}
+  - component: {fileID: 686620004}
   m_Layer: 5
   m_Name: LoadingImage
   m_TagString: Untagged
@@ -339,6 +340,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686620000}
   m_CullTransparentMesh: 1
+--- !u!114 &686620004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686620000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484b2e1cce94098439b8b148faa50311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteList:
+  - {fileID: 21300000, guid: 4455d38613fbae740a4aaa9ff76efdfd, type: 3}
+  - {fileID: 21300000, guid: d80d0e72f2d722e4399528ab63ed4c77, type: 3}
+  - {fileID: 21300000, guid: 02b4704630884a64b8d88417b41eb4b6, type: 3}
 --- !u!1 &1038816540
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +718,8 @@ MonoBehaviour:
   - "\u30B1\u30D3\u30F3\u306F\u4E2D\u56FD\u4EBA\u3067\u3059|||- William"
   - "\u79C1\u306F\u30C1\u30F3\u30C1\u30E7\u30F3\u3067\u3059|||- Kevin"
   textObject: {fileID: 1367095242}
+  fadeDuration: 0.25
+  quoteDisplayTime: 5
 --- !u!1 &2137665336
 GameObject:
   m_ObjectHideFlags: 0
