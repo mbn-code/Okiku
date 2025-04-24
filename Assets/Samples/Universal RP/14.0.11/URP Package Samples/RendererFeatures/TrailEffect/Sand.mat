@@ -27,7 +27,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -67,6 +67,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalFromTexture_6f05a05aa257404d92a9fda94a572557_Texture_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 8dc19fd73a70bd648abb160c074f4ba4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -149,7 +153,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HighColor: {r: 1, g: 0.88479954, b: 0.63529414, a: 1}
-    - _LowColor: {r: 0.6320754, g: 0.46840745, b: 0.18783373, a: 1}
+    - _HighColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+    - _LowColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
