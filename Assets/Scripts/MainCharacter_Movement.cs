@@ -13,7 +13,10 @@ public class MainCharacter_Movement : MonoBehaviour
     [Header("Climb Settings")]
     public float climbCheckDistance = 1.5f; // How close you need to be to climb
     public LayerMask climbableLayer;        // Set this to only include climbable objects
-    public float pushAmount = 0.5f;         // The amount to push the character after climbing
+    public float pushAmount = 1f;         // The amount to push the character after climbing
+
+    // Add these new variables
+    public float characterScale = 1f;
 
     [Header("Key Mapping - Static Directions")]
     public Vector3 forwardDirection = Vector3.back;
@@ -32,6 +35,10 @@ public class MainCharacter_Movement : MonoBehaviour
     private bool isClimbing = false;
     private bool isFalling = false;
     private bool hasClimbed = false;
+    private bool canClimb = true;
+
+    private Vector3 climbTargetPosition;
+    public float climbHeightOffset = 0.1f;  // Adjust this value if needed
 
     void Awake()
     {
@@ -39,6 +46,8 @@ public class MainCharacter_Movement : MonoBehaviour
         anm = GetComponent<Animator>();
         col = GetComponent<Collider>();
 
+        // Store the original scale for reference
+        characterScale = transform.localScale.y;
     }
 
     void FixedUpdate()
@@ -86,6 +95,9 @@ public class MainCharacter_Movement : MonoBehaviour
 
     void Update()
     {
+        // Update scale if it changes during runtime
+        characterScale = transform.localScale.y;
+
         AnimatorStateInfo stateInfo = anm.GetCurrentAnimatorStateInfo(0);
         bool currentlyClimbing = stateInfo.IsName("Climb");
 
@@ -98,8 +110,14 @@ public class MainCharacter_Movement : MonoBehaviour
 
         if (isClimbing && stateInfo.normalizedTime >= 0.9f && !hasClimbed)
         {
-            Vector3 pushForward = transform.forward * pushAmount;
-            transform.position += pushForward;
+            // Position the character on top of the object
+            transform.position = new Vector3(
+                climbTargetPosition.x,
+                climbTargetPosition.y,
+                climbTargetPosition.z
+            );
+
+            StartCoroutine(ClimbDead());
 
             hasClimbed = true;
             isClimbing = false;
@@ -128,16 +146,15 @@ public class MainCharacter_Movement : MonoBehaviour
     }
     bool IsGrounded()
     {
-        Vector3 origin = transform.position + Vector3.down * 0.1f;
-        float sphereRadius = 0.35f;
+        Vector3 origin = transform.position + Vector3.down * (0.1f * characterScale);
+        float sphereRadius = 0.35f * characterScale;
 
         return Physics.CheckSphere(origin, sphereRadius, groundLayer);
     }
 
     void CheckForClimb()
     {
-        // Prevent climb spam if we're already climbing
-        if (IsClimbing())
+        if (IsClimbing() || !canClimb)
         {
             return;
         }
@@ -145,23 +162,37 @@ public class MainCharacter_Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             RaycastHit hit;
-            Vector3 origin = transform.position + Vector3.up * 0.5f;
+            Vector3 origin = transform.position + Vector3.up * (0.5f * characterScale);
             Vector3 direction = transform.forward;
-            float radius = 0.4f;
+            float radius = 0.4f * characterScale;
+            float scaledCheckDistance = climbCheckDistance * characterScale;
 
-            if (Physics.SphereCast(origin, radius, direction, out hit, climbCheckDistance, climbableLayer))
+            if (Physics.SphereCast(origin, radius, direction, out hit, scaledCheckDistance, climbableLayer))
             {
                 if (hit.collider.CompareTag("Climbable"))
                 {
+                    canClimb = false;
                     if (col.enabled)
                         col.enabled = false;
 
                     if (anm.GetBool("Falling"))
                         anm.SetBool("Falling", false);
-
+                    
+                    // Store the target position when starting the climb
+                    climbTargetPosition = new Vector3(
+                        hit.point.x,
+                        hit.collider.bounds.max.y + climbHeightOffset,
+                        hit.point.z
+                    );
+                    
                     anm.SetTrigger("Climbing");
                 }
             }
         }
+    }
+
+    IEnumerator ClimbDead() {
+        yield return new WaitForSeconds(0.25f);
+        canClimb = true;
     }
 }

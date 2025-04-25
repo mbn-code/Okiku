@@ -13,18 +13,48 @@ public class MainCamera_Follow : MonoBehaviour
     [Tooltip("Minimum angle difference before the camera starts rotating.")]
     public float deadzoneAngle = 5f;
 
+    [Header("Position Settings")]
+    [Tooltip("Time (in seconds) for the camera to smooth its position movement.")]
+    public float positionSmoothTime = 0.5f;
+    [Tooltip("How far the camera should maintain from the target on Z axis.")]
+    public float offsetZ = 0f;
+
+    private Vector3 currentVelocity;
+    private float initialX;  // Store initial X position
+    private float initialY;  // Store initial Y position
+
+    void Start()
+    {
+        // Store the initial X and Y positions
+        initialX = transform.position.x;
+        initialY = transform.position.y;
+    }
+
     void LateUpdate()
     {
         if (target == null)
             return;
+
+        // Handle position following (Z axis only)
+        Vector3 targetPosition = transform.position;
+        targetPosition.x = initialX;  // Lock X position
+        targetPosition.y = initialY;  // Lock Y position
+        targetPosition.z = target.position.z + offsetZ;
+
+        transform.position = Vector3.SmoothDamp(
+            transform.position, 
+            targetPosition, 
+            ref currentVelocity, 
+            positionSmoothTime
+        );
 
         // Calculate the direction from the camera to the target.
         Vector3 directionToTarget = target.position - transform.position;
         if (directionToTarget.sqrMagnitude < 0.0001f)
             return;  // Avoid zero-length direction
 
-        // Uncomment the next line if you want to ignore vertical differences (only rotate on Y axis).
-        // directionToTarget.y = 0;
+        // Force Y value to 0 to prevent vertical rotation
+        directionToTarget.y = 0;
 
         // Determine the desired rotation so that the camera looks at the target.
         Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
