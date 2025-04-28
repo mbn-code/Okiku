@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +17,10 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject MainCharacter;
     public bool IsTrigger;
+
+    // Audio integration
+    public AudioSource audioSource;                    // Assign in Inspector (or GetComponent<AudioSource> in Awake)
+    public List<AudioClip> DialogueSounds;             // One clip per dialogue line (optional fallback if less clips than lines)
 
     private TMP_Text NameBox;
     private TMP_Text MessageBox;
@@ -42,30 +45,40 @@ public class DialogueManager : MonoBehaviour
 
         dialogueWindow.SetActive(false);
         interactionUI.SetActive(false);
+
+        // Optionally grab AudioSource if not set in Inspector
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Space) && inDialog)
         {
-            if(typing)
+            if (typing)
             {
                 skipAnim = true;
-            } else
+            }
+            else
             {
                 continuePressed = true;
+
+                // Stop the current typing sound immediately
+                if (audioSource != null)
+                    audioSource.Stop();
             }
         }
 
         Vector3 MyPos = transform.position;
         Vector3 MainCharacterPos = MainCharacter.transform.position;
 
-        if(Vector3.Distance(MainCharacterPos, MyPos) < DialogDistance && !inDialog)
+        if (Vector3.Distance(MainCharacterPos, MyPos) < DialogDistance && !inDialog)
         {
-            if(IsTrigger && !hasShown)
+            if (IsTrigger && !hasShown)
             {
                 StartCoroutine(StartDialogue()); // Force Start it
-            } else if(!IsTrigger && !hasShown)
+            }
+            else if (!IsTrigger && !hasShown)
             {
                 if (!interactionUI.activeSelf)
                     interactionUI.SetActive(true);
@@ -75,7 +88,8 @@ public class DialogueManager : MonoBehaviour
                     StartCoroutine(StartDialogue());
                 }
             }
-        } else
+        }
+        else
         {
             if (interactionUI.activeSelf)
                 interactionUI.SetActive(false);
@@ -94,12 +108,35 @@ public class DialogueManager : MonoBehaviour
             NameBox.text = CharacterNames[i % CharacterNames.Count];
             DialogImage.sprite = CharacterSprites[i % CharacterSprites.Count];
 
-            yield return StartCoroutine(WriteTextToTextmesh(Dialogues[i], MessageBox)); // Wait for it to finish
+            // Play the corresponding dialogue sound (looped)
+            if (audioSource != null)
+            {
+                if (DialogueSounds != null && i < DialogueSounds.Count && DialogueSounds[i] != null)
+                {
+                    audioSource.clip = DialogueSounds[i];
+                    audioSource.Play();
+                }
+                else
+                {
+                    // No sound for this line
+                    audioSource.Stop();
+                }
+            }
+
+            yield return StartCoroutine(WriteTextToTextmesh(Dialogues[i], MessageBox)); // Wait for text animation
 
             yield return StartCoroutine(WaitForContinue());
 
+            // Stop sound when line complete
+            if (audioSource != null)
+                audioSource.Stop();
+
             continuePressed = false;
         }
+
+        // Ensure audio is off at the end
+        if (audioSource != null)
+            audioSource.Stop();
 
         dialogueWindow.SetActive(false);
         inDialog = false;
@@ -107,7 +144,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator WaitForContinue()
     {
-        while(!continuePressed)
+        while (!continuePressed)
         {
             yield return new WaitForSeconds(0.1f);
         }
@@ -117,7 +154,7 @@ public class DialogueManager : MonoBehaviour
     {
         typing = true;
 
-        _textMeshObject.text = "";
+        _textMeshObject.text = string.Empty;
         char[] _letters = _text.ToCharArray();
 
         float _speed = 1f - textAnimationSpeed;
@@ -126,7 +163,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (skipAnim)
             {
-                typing = false; // Stop animation
+                typing = false; // Stop animation immediately
                 break;
             }
 
@@ -140,11 +177,13 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f * _speed);
         }
 
-        if(skipAnim)
+        // If skipped, finish text instantly
+        if (skipAnim)
         {
             _textMeshObject.text = _text;
             skipAnim = false;
         }
-    }
 
+        typing = false;
+    }
 }
