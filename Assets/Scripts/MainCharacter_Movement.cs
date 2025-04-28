@@ -42,6 +42,11 @@ public class MainCharacter_Movement : MonoBehaviour
     private bool hasClimbed = false;
     private bool canClimb = true;
 
+    // —— New pull state ——
+    private bool isPulling = false;
+    private Transform pullTarget;
+    private bool canPull = true;
+
     private Vector3 climbTargetPosition;
     public float climbHeightOffset = 0.1f;  // Adjust this value if needed
 
@@ -282,6 +287,7 @@ public class MainCharacter_Movement : MonoBehaviour
         if (IsClimbing() || !canClimb)
         {
             return;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
