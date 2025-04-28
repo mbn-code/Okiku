@@ -63,11 +63,6 @@ public class SpotlightFlicker : MonoBehaviour
         spotLight = GetComponent<Light>();
         audioSource = GetComponent<AudioSource>();
 
-        if (spotLight.type != LightType.Spot)
-        {
-            Debug.LogWarning("SpotlightFlicker is designed for Spot Lights only.", this);
-        }
-
         soundTimer = Random.Range(minSoundInterval, maxSoundInterval);
     }
 
