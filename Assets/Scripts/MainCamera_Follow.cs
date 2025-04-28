@@ -31,6 +31,7 @@ public class MainCamera_Follow : MonoBehaviour
     private float initialY;  // Store initial Y position for follow mode
     private Vector3 targetFixedPosition;
     private Quaternion targetFixedRotation;
+    private CameraTriggerZone activeTriggerZone = null; // Keep track of the active zone
 
     void Start()
     {
@@ -113,8 +114,9 @@ public class MainCamera_Follow : MonoBehaviour
     }
 
     // Public method to switch to fixed position mode
-    public void SetFixedPosition(Vector3 position, Quaternion rotation)
+    public void SetFixedPosition(CameraTriggerZone triggerZone, Vector3 position, Quaternion rotation)
     {
+        activeTriggerZone = triggerZone; // Store the zone that triggered this
         targetFixedPosition = position;
         targetFixedRotation = rotation;
         currentMode = CameraMode.FixedPosition;
@@ -122,13 +124,19 @@ public class MainCamera_Follow : MonoBehaviour
     }
 
     // Public method to switch back to following the target
-    public void ResumeFollow()
+    public void ResumeFollow(CameraTriggerZone triggerZone)
     {
-        currentMode = CameraMode.FollowTarget;
-        currentVelocity = Vector3.zero; // Reset velocity for the new SmoothDamp operation
+        // Only resume if the exiting zone is the currently active one
+        if (triggerZone == activeTriggerZone)
+        {
+            currentMode = CameraMode.FollowTarget;
+            activeTriggerZone = null; // Clear the active zone
+            currentVelocity = Vector3.zero; // Reset velocity for the new SmoothDamp operation
 
-        // Re-capture initial X/Y based on current position to avoid snapping
-        initialX = transform.position.x;
-        initialY = transform.position.y;
+            // Re-capture initial X/Y based on current position to avoid snapping
+            initialX = transform.position.x;
+            initialY = transform.position.y;
+        }
+        // If triggerZone != activeTriggerZone, do nothing, as another zone has taken control.
     }
 }

@@ -50,8 +50,8 @@ public class CameraTriggerZone : MonoBehaviour
         // Check if the object entering the trigger has the correct tag
         if (other.CompareTag(targetTag))
         {
-            // Tell the camera to move to the fixed position
-            mainCameraFollowScript.SetFixedPosition(cameraPositionTarget.position, cameraPositionTarget.rotation);
+            // Tell the camera to move to the fixed position, passing this zone instance
+            mainCameraFollowScript.SetFixedPosition(this, cameraPositionTarget.position, cameraPositionTarget.rotation);
         }
     }
 
@@ -62,8 +62,8 @@ public class CameraTriggerZone : MonoBehaviour
         // Check if the object exiting the trigger has the correct tag
         if (other.CompareTag(targetTag))
         {
-            // Tell the camera to resume following the target
-            mainCameraFollowScript.ResumeFollow();
+            // Tell the camera to resume following the target, passing this zone instance
+            mainCameraFollowScript.ResumeFollow(this);
         }
     }
 
