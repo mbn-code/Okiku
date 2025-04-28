@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4ae863ae8c681d14fad1a8be23e85fd4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - targetCamera: {instanceID: 0}
+  - pulseSoundCue: {instanceID: 0}
+  - jumpscareSound: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
