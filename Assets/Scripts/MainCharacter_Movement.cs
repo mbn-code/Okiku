@@ -20,10 +20,6 @@ public class MainCharacter_Movement : MonoBehaviour
     public LayerMask climbableLayer;        // Set this to only include climbable objects
     public float pushAmount = 1f;         // The amount to push the character after climbing
 
-    [Header("Crouch Settings")]
-    public Transform headTransform;
-    public float headOffset = 0.2f; // Small buffer between top of head and capsule
-
     // Add these new variables
     public float characterScale = 1f;
 
@@ -134,12 +130,6 @@ public class MainCharacter_Movement : MonoBehaviour
             isClimbing = true;
             hasClimbed = false;
         }
-
-        float headHeight = headTransform.position.y;
-        capCol.height = headHeight + headOffset;
-        Vector3 center = capCol.center;
-        center.y = capCol.height / 2f;
-        capCol.center = center;
 
 
         if (isClimbing && stateInfo.normalizedTime >= 0.9f && !hasClimbed)
