@@ -584,10 +584,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 528407538}
-  rotationSmoothTime: 5
+  followRotationSmoothTime: 0.2
   deadzoneAngle: 20
-  positionSmoothTime: 0.5
+  followPositionSmoothTime: 0.5
   offsetZ: 0
+  fixedPositionSmoothTime: 1
+  fixedRotationSmoothTime: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
