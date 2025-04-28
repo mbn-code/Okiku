@@ -80,6 +80,11 @@ public class MainCharacter_Movement : MonoBehaviour
             col.enabled = true;
         }
 
+        if(IsLanding())
+        {
+            return; // Can't move when landing
+        }
+
         Vector3 moveDir = Vector3.zero;
 
         // Detect crouching
@@ -275,6 +280,11 @@ public class MainCharacter_Movement : MonoBehaviour
         return anm.GetCurrentAnimatorStateInfo(0).IsName("Climb");
     }
 
+    bool IsLanding()
+    {
+        return anm.GetCurrentAnimatorStateInfo(0).IsName("Fall_Landing");
+    }
+
     bool IsGrounded()
     {
         Vector3 origin = transform.position + Vector3.down * (0.1f * characterScale);
@@ -285,37 +295,35 @@ public class MainCharacter_Movement : MonoBehaviour
     void CheckForClimb()
     {
         if (IsClimbing() || !canClimb)
-        {
             return;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            RaycastHit hit;
+            Vector3 origin = transform.position + Vector3.up * (0.5f * characterScale);
+            Vector3 direction = transform.forward;
+            float radius = 0.4f * characterScale;
+            float scaledCheckDistance = climbCheckDistance * characterScale;
+
+            if (Physics.SphereCast(origin, radius, direction, out hit, scaledCheckDistance, climbableLayer))
             {
-                RaycastHit hit;
-                Vector3 origin = transform.position + Vector3.up * (0.5f * characterScale);
-                Vector3 direction = transform.forward;
-                float radius = 0.4f * characterScale;
-                float scaledCheckDistance = climbCheckDistance * characterScale;
-
-                if (Physics.SphereCast(origin, radius, direction, out hit, scaledCheckDistance, climbableLayer))
+                if (hit.collider.CompareTag("Climbable"))
                 {
-                    if (hit.collider.CompareTag("Climbable"))
-                    {
-                        canClimb = false;
-                        if (col.enabled)
-                            col.enabled = false;
+                    canClimb = false;
+                    if (col.enabled)
+                        col.enabled = false;
 
-                        if (anm.GetBool("Falling"))
-                            anm.SetBool("Falling", false);
+                    if (anm.GetBool("Falling"))
+                        anm.SetBool("Falling", false);
 
-                        // Store the target position when starting the climb
-                        climbTargetPosition = new Vector3(
-                            hit.point.x,
-                            hit.collider.bounds.max.y + climbHeightOffset,
-                            hit.point.z
-                        );
+                    // Store the target position when starting the climb
+                    climbTargetPosition = new Vector3(
+                        hit.point.x,
+                        hit.collider.bounds.max.y + climbHeightOffset,
+                        hit.point.z
+                    );
 
-                        anm.SetTrigger("Climbing");
-                    }
+                    anm.SetTrigger("Climbing");
                 }
             }
         }
