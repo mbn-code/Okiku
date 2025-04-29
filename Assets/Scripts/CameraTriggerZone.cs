@@ -74,7 +74,7 @@ public class CameraTriggerZone : MonoBehaviour
         Collider col = GetComponent<Collider>();
         if (col != null)
         {
-            Gizmos.color = new Color(0f, 1f, 0f, 0.01f); // Green, semi-transparent
+            Gizmos.color = new Color(0f, 1f, 0f, 0.5f); // Green, semi-transparent
             if (col is BoxCollider boxCollider)
             {
                 Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.lossyScale);
