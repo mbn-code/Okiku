@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2.75.unity
     guid: 51e98416747be4f44b85a68c7df9c594
+  - enabled: 1
+    path: Assets/Scenes/Jumpscares/Jumpscare_kutchi.unity
+    guid: 31a1289c27187c7488bb19dbf8fac4f3
+  - enabled: 1
+    path: Assets/Scenes/Jumpscares/Jumpscare_rukorukubi.unity
+    guid: 8488e68b80fbd9144b488cfc9efa92f4
+  - enabled: 1
+    path: Assets/Scenes/Jumpscares/Jumpscare_teketeke.unity
+    guid: 63ee6f3d436c27f40810e277f637ee55
   m_configObjects: {}
