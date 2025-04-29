@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 public class CameraShake : MonoBehaviour
 {
     public float shakeDuration = 1f;
     public float shakeMagnitude = 0.3f;
     public float shakeDecay = 1f; // How fast shake weakens
+    public float shakeDelay = 0f;
 
     private Vector3 originalPosition;
     private bool isShaking = false;
@@ -13,7 +17,13 @@ public class CameraShake : MonoBehaviour
     void Start()
     {
         originalPosition = transform.localPosition;
-        StartShake(); // <-- Trigger shake immediately on start
+        StartCoroutine(DelayShake());
+    }
+
+    IEnumerator DelayShake()
+    {
+        yield return new WaitForSeconds(shakeDelay);
+        StartShake();
     }
 
     void Update()

@@ -6262,6 +6262,7 @@ GameObject:
   - component: {fileID: 257435721}
   - component: {fileID: 257435720}
   - component: {fileID: 257435719}
+  - component: {fileID: 257435723}
   m_Layer: 0
   m_Name: Spot Light (7)
   m_TagString: Untagged
@@ -6287,6 +6288,13 @@ MonoBehaviour:
   useBurstMode: 0
   burstCount: 4
   burstInterval: 1.5
+  flickerSound: {fileID: 0}
+  minSoundInterval: 0.4
+  maxSoundInterval: 0.6
+  minPitch: 0.9
+  maxPitch: 1.1
+  minVolume: 0.8
+  maxVolume: 1
 --- !u!114 &257435720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6387,6 +6395,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 538070709}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!82 &257435723
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257435718}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &267286236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6755,6 +6859,7 @@ GameObject:
   - component: {fileID: 338097894}
   - component: {fileID: 338097893}
   - component: {fileID: 338097892}
+  - component: {fileID: 338097896}
   m_Layer: 0
   m_Name: Spot Light (6)
   m_TagString: Untagged
@@ -6780,6 +6885,13 @@ MonoBehaviour:
   useBurstMode: 0
   burstCount: 4
   burstInterval: 1.5
+  flickerSound: {fileID: 0}
+  minSoundInterval: 0.4
+  maxSoundInterval: 0.6
+  minPitch: 0.9
+  maxPitch: 1.1
+  minVolume: 0.8
+  maxVolume: 1
 --- !u!114 &338097893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6880,6 +6992,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 538070709}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!82 &338097896
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338097891}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &347478255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8253,7 +8461,6 @@ GameObject:
   - component: {fileID: 424611041}
   - component: {fileID: 424611040}
   - component: {fileID: 424611038}
-  - component: {fileID: 424611044}
   - component: {fileID: 424611045}
   m_Layer: 2
   m_Name: Main Camera
@@ -8440,30 +8647,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 5.176, y: -182.195, z: 0}
---- !u!114 &424611044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424611037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae863ae8c681d14fad1a8be23e85fd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCamera: {fileID: 0}
-  moveSpeed: 5
-  stopDistance: 1
-  initialTekeTekeSound: {fileID: 0}
-  pulseSoundCue: {fileID: 0}
-  jumpscareSound: {fileID: 0}
-  minPulseInterval: 0.05
-  maxPulseInterval: 2
-  minTekeTekeInterval: 0.1
-  maxTekeTekeInterval: 1
-  initialTekeTekeVolume: 0.3
-  maxTekeTekeVolume: 1
 --- !u!114 &424611045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8479,6 +8662,7 @@ MonoBehaviour:
   shakeDuration: 10
   shakeMagnitude: 0.05
   shakeDecay: 3
+  shakeDelay: 1.8
 --- !u!1001 &428266321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12840,6 +13024,7 @@ GameObject:
   - component: {fileID: 1184300501}
   - component: {fileID: 1184300500}
   - component: {fileID: 1184300499}
+  - component: {fileID: 1184300503}
   m_Layer: 0
   m_Name: Spot Light (8)
   m_TagString: Untagged
@@ -12865,6 +13050,13 @@ MonoBehaviour:
   useBurstMode: 1
   burstCount: 7
   burstInterval: 1.5
+  flickerSound: {fileID: 0}
+  minSoundInterval: 0.4
+  maxSoundInterval: 0.6
+  minPitch: 0.9
+  maxPitch: 1.1
+  minVolume: 0.8
+  maxVolume: 1
 --- !u!114 &1184300500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12965,6 +13157,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 538070709}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!82 &1184300503
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184300498}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1188328721
 PrefabInstance:
   m_ObjectHideFlags: 0

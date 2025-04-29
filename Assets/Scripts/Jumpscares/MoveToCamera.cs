@@ -140,6 +140,7 @@ public class TekeTekeMoveFixed : MonoBehaviour
     {
         if (jumpscareSound != null)
         {
+            jumpscareAudioSource.volume = 0.05f;
             jumpscareAudioSource.PlayOneShot(jumpscareSound);
         }
     }
