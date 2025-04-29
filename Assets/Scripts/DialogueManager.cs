@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
     private bool skipAnim = false;
     private bool inDialog = false;
     private bool hasShown = false;
+    private MainCharacter_Movement MainMovement;
 
     private void Awake()
     {
@@ -42,6 +43,8 @@ public class DialogueManager : MonoBehaviour
         DialogImage = GameObject.Find("Dialog_Portait").GetComponent<Image>();
         dialogueWindow = GameObject.Find("Dialog_Box");
         interactionUI = GameObject.Find("Interaction_Box");
+
+        MainMovement = MainCharacter.GetComponent<MainCharacter_Movement>();
 
         dialogueWindow.SetActive(false);
         interactionUI.SetActive(false);
@@ -100,6 +103,7 @@ public class DialogueManager : MonoBehaviour
     {
         hasShown = true;
         inDialog = true;
+        MainMovement.SetDialog(true);
         dialogueWindow.SetActive(true);
         interactionUI.SetActive(false);
 
@@ -140,6 +144,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueWindow.SetActive(false);
         inDialog = false;
+        MainMovement.SetDialog(false);
     }
 
     IEnumerator WaitForContinue()
