@@ -90,6 +90,10 @@ public class MainCharacter_Movement : MonoBehaviour
 
         if(inDialog)
         {
+            anm.SetBool("Walking", false);
+            anm.SetBool("Crouching", false);
+            anm.SetBool("Pulling", false);
+            anm.SetBool("Falling", false);
             return; // Can't move while in dialog
         }
 
@@ -134,6 +138,10 @@ public class MainCharacter_Movement : MonoBehaviour
 
         if (inDialog)
         {
+            anm.SetBool("Walking", false);
+            anm.SetBool("Crouching", false);
+            anm.SetBool("Pulling", false);
+            anm.SetBool("Falling", false);
             return; // Can't move while in dialog
         }
 
