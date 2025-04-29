@@ -42,6 +42,7 @@ public class MainCharacter_Movement : MonoBehaviour
     private bool isFalling = false;
     private bool hasClimbed = false;
     private bool canClimb = true;
+    private bool inDialog = false;
 
     // —— New pull state ——
     private bool isPulling = false;
@@ -87,6 +88,15 @@ public class MainCharacter_Movement : MonoBehaviour
             return; // Can't move when landing
         }
 
+        if(inDialog)
+        {
+            anm.SetBool("Walking", false);
+            anm.SetBool("Crouching", false);
+            anm.SetBool("Pulling", false);
+            anm.SetBool("Falling", false);
+            return; // Can't move while in dialog
+        }
+
         Vector3 moveDir = Vector3.zero;
 
         // Detect crouching
@@ -120,6 +130,20 @@ public class MainCharacter_Movement : MonoBehaviour
     {
         // Update scale if it changes during runtime
         characterScale = transform.localScale.y;
+
+        if (IsLanding())
+        {
+            return; // Can't move when landing
+        }
+
+        if (inDialog)
+        {
+            anm.SetBool("Walking", false);
+            anm.SetBool("Crouching", false);
+            anm.SetBool("Pulling", false);
+            anm.SetBool("Falling", false);
+            return; // Can't move while in dialog
+        }
 
         AnimatorStateInfo stateInfo = anm.GetCurrentAnimatorStateInfo(0);
         bool currentlyClimbing = stateInfo.IsName("Climb");
@@ -335,5 +359,10 @@ public class MainCharacter_Movement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         canClimb = true;
+    }
+
+    public void SetDialog(bool Val)
+    {
+        inDialog = Val;
     }
 }

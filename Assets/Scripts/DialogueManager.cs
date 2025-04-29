@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     public List<string> CharacterNames;
     public List<Sprite> CharacterSprites;
     public List<string> Dialogues;
+    public List<AudioClip> DialogueSounds;
 
     [Range(0.1f, 1f)]
     public float textAnimationSpeed = 0.5f;
@@ -19,14 +20,13 @@ public class DialogueManager : MonoBehaviour
     public bool IsTrigger;
 
     // Audio integration
-    public AudioSource audioSource;                    // Assign in Inspector (or GetComponent<AudioSource> in Awake)
-    public List<AudioClip> DialogueSounds;             // One clip per dialogue line (optional fallback if less clips than lines)
+    public AudioSource audioSource;
 
-    private TMP_Text NameBox;
-    private TMP_Text MessageBox;
-    private GameObject dialogueWindow;
-    private GameObject interactionUI;
-    private Image DialogImage;
+    public TMP_Text NameBox;
+    public TMP_Text MessageBox;
+    public GameObject dialogueWindow;
+    public GameObject interactionUI;
+    public Image DialogImage;
     private bool typing;
     private string currentMessage;
     private float startDialogueDelayTimer;
@@ -34,15 +34,10 @@ public class DialogueManager : MonoBehaviour
     private bool skipAnim = false;
     private bool inDialog = false;
     private bool hasShown = false;
+    public MainCharacter_Movement MainMovement;
 
     private void Awake()
     {
-        NameBox = GameObject.Find("Dialog_Name").GetComponent<TMP_Text>();
-        MessageBox = GameObject.Find("Dialog_Message").GetComponent<TMP_Text>();
-        DialogImage = GameObject.Find("Dialog_Portait").GetComponent<Image>();
-        dialogueWindow = GameObject.Find("Dialog_Box");
-        interactionUI = GameObject.Find("Interaction_Box");
-
         dialogueWindow.SetActive(false);
         interactionUI.SetActive(false);
 
@@ -100,6 +95,7 @@ public class DialogueManager : MonoBehaviour
     {
         hasShown = true;
         inDialog = true;
+        MainMovement.SetDialog(true);
         dialogueWindow.SetActive(true);
         interactionUI.SetActive(false);
 
@@ -140,6 +136,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueWindow.SetActive(false);
         inDialog = false;
+        MainMovement.SetDialog(false);
     }
 
     IEnumerator WaitForContinue()
