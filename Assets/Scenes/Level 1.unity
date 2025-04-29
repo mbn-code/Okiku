@@ -39470,12 +39470,12 @@ MonoBehaviour:
   MainCharacter: {fileID: 112969071}
   IsTrigger: 1
   audioSource: {fileID: 1919252286}
-  NameBox: {fileID: 1622279133}
-  MessageBox: {fileID: 1613755415}
-  dialogueWindow: {fileID: 1088949933}
-  interactionUI: {fileID: 654930697}
-  DialogImage: {fileID: 2104310036}
-  MainMovement: {fileID: 2016115982}
+  NameBox: {fileID: 0}
+  MessageBox: {fileID: 0}
+  dialogueWindow: {fileID: 0}
+  interactionUI: {fileID: 0}
+  DialogImage: {fileID: 0}
+  MainMovement: {fileID: 0}
 --- !u!1 &1924094930
 GameObject:
   m_ObjectHideFlags: 0
@@ -40818,18 +40818,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2016115980}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2016115982 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2751310268694039923, guid: 279bd6aeb8790d04b8ef8b9e4709ee31,
-    type: 3}
-  m_PrefabInstance: {fileID: 2016115980}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112969071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f55b702b9731d4b46b28bd35216c0951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2018869347
 GameObject:
   m_ObjectHideFlags: 0
