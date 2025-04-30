@@ -35,7 +35,7 @@ public class MainCharacter_Movement : MonoBehaviour
     private Rigidbody rb;
     private Animator anm;
     private Collider col;
-    private CapsuleCollider capCol;
+    private BoxCollider boxCol;
 
     private bool isCrouching = false;
     private bool isClimbing = false;
@@ -57,7 +57,7 @@ public class MainCharacter_Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anm = GetComponent<Animator>();
         col = GetComponent<Collider>();
-        capCol = GetComponent<CapsuleCollider>();
+        boxCol = GetComponent<BoxCollider>();
 
         // Store the original scale for reference
         characterScale = transform.localScale.y;
@@ -102,6 +102,17 @@ public class MainCharacter_Movement : MonoBehaviour
         // Detect crouching
         isCrouching = Input.GetKey(KeyCode.LeftControl);
         anm.SetBool("Crouching", isCrouching);
+
+        if(isCrouching)
+        {
+            boxCol.size = new Vector3(1f, 1.2f, 1f);
+            boxCol.center = new Vector3(0f, 0.5f, 0f);
+
+        } else
+        {
+            boxCol.size = new Vector3(1f, 1.8f, 1f);
+            boxCol.center = new Vector3(0f, 1.0f, 0f);
+        }
 
         // Check for key inputs
         if (Input.GetKey(KeyCode.W)) moveDir += forwardDirection;
