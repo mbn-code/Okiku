@@ -21,6 +21,11 @@ public class SceneSwitcher : MonoBehaviour
         StartCoroutine(FadeAndChangeScene());
     }
 
+    public void SwitchFastScene(int sceneId)
+    {
+        StartCoroutine(FadeAndChangeSceneFast(sceneId));
+    }
+
     private IEnumerator FadeIn()
     {
         if (FadeoutImg != null)
@@ -68,5 +73,30 @@ public class SceneSwitcher : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f); // small pause
         SceneManager.LoadScene(6);
+    }
+
+    private IEnumerator FadeAndChangeSceneFast(int newScene)
+    {
+        if (FadeoutImg != null)
+        {
+            FadeoutImg.gameObject.SetActive(true);
+
+            Color color = FadeoutImg.color;
+            float time = 0f;
+
+            while (time < FadeDuration)
+            {
+                color.a = Mathf.Lerp(0f, 1f, time / FadeDuration);
+                FadeoutImg.color = color;
+                time += Time.deltaTime;
+                yield return null;
+            }
+
+            color.a = 1f;
+            FadeoutImg.color = color;
+        }
+
+        yield return new WaitForSeconds(0.1f); // small pause
+        SceneManager.LoadScene(newScene);
     }
 }

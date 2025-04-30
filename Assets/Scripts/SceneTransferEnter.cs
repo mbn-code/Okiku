@@ -7,6 +7,7 @@ public class SceneTransferEnter : MonoBehaviour
 {
     public int SceneId;
     public SceneSwitcher sceneSwitcher;
+    public bool isFastSceneSwitch = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +15,10 @@ public class SceneTransferEnter : MonoBehaviour
         {
             if(other.gameObject.tag == "Player")
             {
-                sceneSwitcher.SwitchScene(SceneId);
+                if (isFastSceneSwitch)
+                    sceneSwitcher.SwitchFastScene(SceneId);
+                else
+                    sceneSwitcher.SwitchScene(SceneId);
             }
         }
     }
