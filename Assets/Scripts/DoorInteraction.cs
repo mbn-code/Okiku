@@ -1,15 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; // Needed for loading scenes
-using TMPro; // Needed for TextMeshPro
 
 public class DoorInteraction : MonoBehaviour
 {
     public Transform player;
     public float interactionDistance = 3f;
     public KeyCode interactionKey = KeyCode.E;
-    public GameObject interactionUI; // Assign a UI Text or Panel (e.g., "Press E")
-    public string InteractionText = "Press  ";
-    private TMP_Text textBox;
+    public GameObject interactionUI; // Assign a UI Text or Panel (e.g., "Press E"
 
     private bool isPlayerInRange = false;
 
@@ -17,8 +14,6 @@ public class DoorInteraction : MonoBehaviour
     {
         if (interactionUI != null)
             interactionUI.SetActive(false); // Hide UI at start
-
-        textBox = GameObject.Find("Input text").GetComponent<TMP_Text>();
     }
 
     private void Update()

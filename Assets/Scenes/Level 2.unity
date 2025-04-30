@@ -3198,11 +3198,11 @@ RectTransform:
   - {fileID: 1654315988}
   m_Father: {fileID: 1650342289}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -354.59998, y: 378}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -292, y: -65}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1001 &583835390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5382,11 +5382,11 @@ RectTransform:
   - {fileID: 2139855838}
   m_Father: {fileID: 1650342289}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 343.79993}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 18, y: -97}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!4 &937422602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 26f3620101485c84c9690fb14073ae1f,
@@ -9122,7 +9122,8 @@ MonoBehaviour:
   interactionDistance: 2
   interactionKey: 101
   interactionUI: {fileID: 441975283}
-  sceneToLoad: Level 2.5
+  InteractionText: 'Press  '
+  sceneToLoad: 0
 --- !u!65 &1505959767
 BoxCollider:
   m_ObjectHideFlags: 0

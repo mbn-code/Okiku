@@ -3157,6 +3157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneId: 2
   sceneSwitcher: {fileID: 2074809287}
+  isFastSceneSwitch: 0
 --- !u!1001 &219437091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7892,11 +7893,11 @@ RectTransform:
   - {fileID: 949597346}
   m_Father: {fileID: 224861152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 343.79993}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -89}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &658079304
 GameObject:
   m_ObjectHideFlags: 0
@@ -19387,11 +19388,11 @@ RectTransform:
   - {fileID: 1944324024}
   m_Father: {fileID: 224861152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -354.59998, y: 378}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -335, y: -52}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1001 &1101068458
 PrefabInstance:
   m_ObjectHideFlags: 0
