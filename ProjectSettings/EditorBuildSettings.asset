@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jumpscares/Jumpscare_teketeke.unity
     guid: 63ee6f3d436c27f40810e277f637ee55
+  - enabled: 1
+    path: Assets/Scenes/Level 2.5_Chase.unity
+    guid: 5099c34631bf89448ba4cbf24c397732
+  - enabled: 1
+    path: Assets/Scenes/Level 2.5_Cutscene.unity
+    guid: ad53fa94d039cab4889ebbcd4b5180e7
   m_configObjects: {}
