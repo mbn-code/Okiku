@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class DoorPuzzle : MonoBehaviour
 {
     public string correctPassword = "Am I beautiful?";
-    public int sceneBuildIndexToLoad = 0;
+    public int sceneBuildIndexToLoad = 4;
     public Transform player;
     public float interactionDistance = 2f;
 

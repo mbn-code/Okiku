@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctPassword: Am I beautiful?
-  sceneBuildIndexToLoad: 3
+  sceneBuildIndexToLoad: 4
   player: {fileID: 1827418488}
   interactionDistance: 2
   keyInfoUI: {fileID: 29414717}
