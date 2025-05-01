@@ -13203,6 +13203,7 @@ MonoBehaviour:
   interactionDistance: 2
   interactionKey: 101
   interactionUI: {fileID: 441975283}
+  sceneSwitcher: {fileID: 1322802610}
   sceneToLoad: 3
 --- !u!65 &1505959767
 BoxCollider:

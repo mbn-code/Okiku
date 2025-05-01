@@ -7,6 +7,7 @@ public class DoorInteraction : MonoBehaviour
     public float interactionDistance = 3f;
     public KeyCode interactionKey = KeyCode.E;
     public GameObject interactionUI; // Assign a UI Text or Panel (e.g., "Press E"
+    public SceneSwitcher sceneSwitcher;
 
     private bool isPlayerInRange = false;
 
@@ -32,7 +33,7 @@ public class DoorInteraction : MonoBehaviour
 
     void LoadScene()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        sceneSwitcher.SwitchScene(sceneToLoad); // Call the scene switcher to load the scene
     }
 
     [Header("Scene to Load")]
