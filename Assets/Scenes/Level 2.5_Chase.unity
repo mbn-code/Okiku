@@ -2921,7 +2921,7 @@ MonoBehaviour:
   interactionDistance: 2
   interactionKey: 101
   interactionUI: {fileID: 727089923}
-  sceneSwitcher: {fileID: 0}
+  sceneSwitcher: {fileID: 1214425972}
   sceneToLoad: 7
 --- !u!64 &250141983
 MeshCollider:
