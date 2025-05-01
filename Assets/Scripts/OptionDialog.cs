@@ -60,6 +60,9 @@ public class OptionDialog : MonoBehaviour
     public JumpscareManager jmpScareMng;
     public SceneSwitcher sceneSwitcher;
 
+    public GameObject KuchisakeIdle;
+    public Vector3 IdlePosition;
+
     private void Awake()
     {
         dialogueWindow.SetActive(false);
@@ -123,6 +126,7 @@ public class OptionDialog : MonoBehaviour
         MainMovement.SetDialog(true);
         dialogueWindow.SetActive(true);
         interactionUI.SetActive(false);
+        KuchisakeIdle.gameObject.transform.position = IdlePosition;
 
         NameBox.text = FirstCharacter;
         DialogImage.sprite = FirstCharacterImage;
@@ -268,7 +272,7 @@ public class OptionDialog : MonoBehaviour
     public void Yes()
     {
         hasAnswered = true;
-        answer = false;
+        answer = true;
     }
 
     public void No()
