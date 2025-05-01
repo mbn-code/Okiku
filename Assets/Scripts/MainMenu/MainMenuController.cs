@@ -5,24 +5,11 @@ using UnityEngine;
 
 public class MainMenuController : MonoBehaviour
 {
-    public GameObject mainMenu;
-    public GameObject optionMenu;
+    public SceneSwitcher sceneSwitcher;
 
     public void PlayClick()
     {
-        // SceneManager til sidste saved scene
-    }
-
-    public void OptionsClick()
-    {
-        mainMenu.SetActive(false);
-        optionMenu.SetActive(true);
-    }
-
-    public void OptionsBackClick()
-    {
-        optionMenu.SetActive(false);
-        mainMenu.SetActive(true);
+        sceneSwitcher.SwitchScene(1); // Level 1
     }
 
     public void ExitClick()

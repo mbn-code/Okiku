@@ -261,7 +261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1891, y: 29}
+  m_AnchoredPosition: {x: 18, y: 18}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &686620000
@@ -582,7 +582,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -717,7 +717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1367095242
@@ -740,8 +740,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30DE\u30EB\u30C6\u30FB\u30C6\u30B9\u30D3\u30E3\u30A6\u306F\u30C1\u30F3\u30DD\u304C\u5927\u597D\u304D\r\n-
-    Ossie"
+  m_text: 'XXXXXXXXXXXXXXXXXXXXXX
+
+    - Ossie'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 14ea5800b17bbe34aaeb8b9f82e52860, type: 2}
   m_sharedMaterial: {fileID: -6931125274643061918, guid: 14ea5800b17bbe34aaeb8b9f82e52860,

@@ -48,6 +48,11 @@ public class SceneSwitcher : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.3f); // small pause
+
+        if (FadeoutImg != null)
+        {
+            FadeoutImg.gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator FadeAndChangeScene()

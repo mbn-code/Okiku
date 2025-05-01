@@ -220,6 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368691853}
   - component: {fileID: 368691854}
+  - component: {fileID: 368691855}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -256,6 +257,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeoutImg: {fileID: 1113945881}
   FadeDuration: 0.5
+--- !u!114 &368691855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368691852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7782afc9cf1018499242b1efa5f3380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DelayTime: 9
+  SceneToLoad: 11
+  sceneSwitcher: {fileID: 368691854}
 --- !u!1 &424611037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 8
   soundClip: {fileID: 8300000, guid: d01911e94b9be684ab35caf8086894db, type: 3}
+  volume: 0.5
 --- !u!1 &1113945879
 GameObject:
   m_ObjectHideFlags: 0

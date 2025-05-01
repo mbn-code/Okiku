@@ -57,6 +57,9 @@ public class OptionDialog : MonoBehaviour
     bool hasAnswered = false;
     bool answer = false;
 
+    public JumpscareManager jmpScareMng;
+    public SceneSwitcher sceneSwitcher;
+
     private void Awake()
     {
         dialogueWindow.SetActive(false);
@@ -152,7 +155,7 @@ public class OptionDialog : MonoBehaviour
 
         if(!answer)
         {
-            // JUMPSCARE
+            jmpScareMng.TriggerJumpscare();
             yield return null;
         }
 
@@ -205,6 +208,8 @@ public class OptionDialog : MonoBehaviour
         dialogueWindow.SetActive(false);
         inDialog = false;
         MainMovement.SetDialog(false);
+
+        sceneSwitcher.SwitchScene(13); // Post credits scene
     }
 
     IEnumerator WaitForContinue()

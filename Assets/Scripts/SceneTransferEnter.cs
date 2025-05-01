@@ -8,6 +8,14 @@ public class SceneTransferEnter : MonoBehaviour
     public int SceneId;
     public SceneSwitcher sceneSwitcher;
     public bool isFastSceneSwitch = false;
+    public bool isDelayedSceneSwitch = false;
+    public float delayTime = 1f;
+
+    private IEnumerator DelayedSwitch(int sceneId)
+    {
+        yield return new WaitForSeconds(delayTime);
+        sceneSwitcher.SwitchScene(sceneId);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,9 +24,16 @@ public class SceneTransferEnter : MonoBehaviour
             if(other.gameObject.tag == "Player")
             {
                 if (isFastSceneSwitch)
+                {
                     sceneSwitcher.SwitchFastScene(SceneId);
+                }
                 else
-                    sceneSwitcher.SwitchScene(SceneId);
+                {
+                    if (isDelayedSceneSwitch)
+                        StartCoroutine(DelayedSwitch(SceneId));
+                    else
+                        sceneSwitcher.SwitchScene(SceneId);
+                }
             }
         }
     }

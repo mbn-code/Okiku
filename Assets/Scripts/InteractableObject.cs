@@ -6,14 +6,12 @@ public class InspectableObject : MonoBehaviour
     public Image inspectImage;           // Assign in inspector (shown when inspecting)
     public GameObject keyInfoUI;         // Assign in inspector (e.g., "Press E to Inspect")
     public float inspectDistance = 3f;
+    public Transform playerCamera;
 
     private bool isInspecting = false;
-    private Transform playerCamera;
 
     void Start()
     {
-        playerCamera = Camera.main.transform;
-
         if (inspectImage != null)
             inspectImage.gameObject.SetActive(false);
 
